@@ -7,12 +7,8 @@ const isPalindrome = (str) => {
   return str1 === str2;
 };
 
-const extractNumbers = (str) => {
-  const number = parseInt(str.toString().replace(/\D/g, ''), 10);
+const extractNumbers = (str) => parseInt(str.toString().replace(/\D/g, ''), 10);
 
-  return isNaN(number) ? NaN : number;
-};
-
-checkLength();
-isPalindrome();
-extractNumbers();
+window.console.log(checkLength('проверяемая строка', 20));
+window.console.log(isPalindrome('топот'));
+window.console.log(extractNumbers('dfs 2025 ыва 6'));
