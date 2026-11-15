@@ -63,19 +63,18 @@ const getUniqueId = (min, max) => {
 };
 
 const generatePhotoId = getUniqueId(1, 25);
+const generateCommentId = getUniqueId(1, 1000);
+
 const getRandomArrayElement = (array) => array[getRandomInt(0, array.length - 1)];
 
+const generateComment = () => ({
+  id: generateCommentId(),
+  avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
+  message: Array.from({length: getRandomInt(1, 2)}, () => getRandomArrayElement(MESSAGES)).join(' '),
+  name: getRandomArrayElement(NAMES)
+});
 
 const generateComments = () => {
-  const generateCommentId = getUniqueId(1, 1000);
-
-  const generateComment = () => ({
-    id: generateCommentId(),
-    avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
-    message: Array.from({length: getRandomInt(1, 2)}, () => getRandomArrayElement(MESSAGES)).join(' '),
-    name: getRandomArrayElement(NAMES)
-  });
-
   const commentsCount = getRandomInt(0, 30);
 
   return Array.from({length: commentsCount}, generateComment);
