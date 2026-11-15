@@ -49,7 +49,7 @@ const getUniqueId = (min, max) => {
     let currentValue = getRandomInt(min, max);
 
     if (previousValues.length >= max - min + 1) {
-      console.error(`Перебраны все числа из диапазона от ${ min } до ${ max}`);
+      window.console.error(`Перебраны все числа из диапазона от ${ min } до ${ max}`);
       return null;
     }
 
